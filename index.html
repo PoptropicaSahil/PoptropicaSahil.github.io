@@ -3,36 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name's Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css"> 
+    <title>Your Name - Personal Website</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+            --secondary-color: #03dac6;
+            --transition-speed: 0.3s;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        header {
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color var(--transition-speed);
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform var(--transition-speed);
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Your Name</h1>
+        <p>Welcome to my personal website</p>
     </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Short bio goes here.</p>
-    </section>
-
-    <section id="projects">
-        <h2>My Projects</h2>
+    <nav>
         <ul>
-            <li><a href="https://github.com/username/repo1">Project 1</a></li>
-            <li><a href="https://github.com/username/repo2">Project 2</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html"><strong>Education</strong></a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
         </ul>
-    </section>
-
-    <footer id="contact">
-        <p>Contact me at: sahilgirhepuje@gmail.com</p>
-    </footer>
+    </nav>
+    <div class="content">
+        <h2>Home</h2>
+        <p>Welcome to my personal website. Here you can find information about my education, experience, projects, and how to contact me.</p>
+    </div>
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
